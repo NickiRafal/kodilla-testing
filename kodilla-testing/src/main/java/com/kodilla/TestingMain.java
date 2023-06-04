@@ -3,7 +3,7 @@ import com.kodilla.testing.user.SimpleUser;
 import com.kodilla.testing.calculator.Calcutator;
 public class TestingMain {
     public static void main(String[] args) {
-        SimpleUser simpleUser = new SimpleUser("Testowanie użytkownika");
+       /* SimpleUser simpleUser = new SimpleUser("Testowanie użytkownika");
         String pom = simpleUser.getUsername();
         if (pom.equals("Testowanie użytkownika")){
             System.out.println("Test ok");
@@ -33,6 +33,6 @@ public class TestingMain {
             System.out.println("Test dla metody subtract() przeszedł pomyślnie.");
         } else {
             System.out.println("Test dla metody subtract() nie przeszedł. Oczekiwany wynik: " + expectedResult);
-        }
+        }*/
     }
 }
