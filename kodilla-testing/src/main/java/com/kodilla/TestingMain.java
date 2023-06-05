@@ -3,9 +3,9 @@ import com.kodilla.testing.user.SimpleUser;
 import com.kodilla.testing.calculator.Calcutator;
 public class TestingMain {
     public static void main(String[] args) {
-        SimpleUser simpleUser = new SimpleUser("Testowanie użytkownika");
+        SimpleUser simpleUser = new SimpleUser("Testowanie użytkownika", "Nicki Rafał");
         String pom = simpleUser.getUsername();
-        if (pom.equals("Testowanie użytkownika")){
+        if (pom.equals("Testowanie użytkownika ")){
             System.out.println("Test ok");
         }else {
             System.out.println( "Test Error");

@@ -2,9 +2,9 @@
 package com.kodilla.testing.forum;                             // [1]
 
 import com.kodilla.testing.user.SimpleUser;
-import org.junit.jupiter.api.DisplayName;                   // [2]
-import org.junit.jupiter.api.Assertions;                       // [3]
-import org.junit.jupiter.api.Test;                             // [4]
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 @DisplayName("Forum Test Suite")
 class ForumTestSuite {
     @DisplayName(
