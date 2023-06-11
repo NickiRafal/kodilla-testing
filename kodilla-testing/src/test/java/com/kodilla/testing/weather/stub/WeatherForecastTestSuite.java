@@ -17,4 +17,16 @@ class WeatherForecastTestSuite {
         //Then
         Assertions.assertEquals(5, quantityOfSensors);
     }
+    @Test
+    void testCalculateAverageTemperatureStub() {
+        //Given
+        Temperatures temperatures = new TemperaturesStub();
+        WeatherForecast weatherForecast = new WeatherForecast(temperatures);
+
+        //When
+        double quantityOfSensors = weatherForecast.calculateAverageTemperature();
+
+        //Then
+        Assertions.assertEquals(25.56, quantityOfSensors);
+    }
 }
