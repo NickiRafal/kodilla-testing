@@ -3,7 +3,9 @@ package com.kodilla.testing.weather.mock;
 import com.kodilla.testing.weather.stub.Temperatures;
 import com.kodilla.testing.weather.stub.TemperaturesStub;
 import com.kodilla.testing.weather.stub.WeatherForecast;
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -19,7 +21,10 @@ class WeatherForecastTestSuite {
 
     @Mock
     private Temperatures temperaturesMock;
+    @BeforeEach
+    void given(){
 
+    }
     @Test
     void testCalculateForecastWithMock() {
         //Given
@@ -47,7 +52,7 @@ class WeatherForecastTestSuite {
         temperaturesMap.put("Wroclaw", 24.8);
         temperaturesMap.put("Warszawa", 25.2);
         temperaturesMap.put("Gdansk", 26.1);
-        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
+          when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
 
         //When
@@ -74,4 +79,5 @@ class WeatherForecastTestSuite {
         //Then
         Assertions.assertEquals(25.5, quantityOfSensors);
     }
+
 }
