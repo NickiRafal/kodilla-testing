@@ -34,14 +34,11 @@ public class WeatherForecast {
     }
 
     public double calculateMedianTemperature() {
-        Map<String, Double> resultMap = new HashMap<>();
         List <Double> list = new ArrayList<>();
 
         for (Map.Entry<String, Double> temperature :
                 temperatures.getTemperatures().entrySet()) {
-
-            resultMap.put(temperature.getKey(), temperature.getValue() + 1.0); // [1]
-            list.add(temperature.getValue());
+         list.add(temperature.getValue());
         }
         Collections.sort(list);
         double median =0;
@@ -57,8 +54,6 @@ public class WeatherForecast {
             int middleIndex = size / 2;
             median = list.get(middleIndex);
         }
-
-
         return median;
     }
 
