@@ -29,4 +29,16 @@ class WeatherForecastTestSuite {
         //Then
         Assertions.assertEquals(25.56, quantityOfSensors);
     }
+    @Test
+    void testCalculateMedianTemperatureStub() {
+        //Given
+        Temperatures temperatures = new TemperaturesStub();
+        WeatherForecast weatherForecast = new WeatherForecast(temperatures);
+
+        //When
+        double quantityOfSensors = weatherForecast.calculateMedianTemperature();
+
+        //Then
+        Assertions.assertEquals(25.5, quantityOfSensors);
+    }
 }
