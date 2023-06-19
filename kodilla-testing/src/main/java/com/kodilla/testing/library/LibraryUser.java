@@ -1,11 +1,13 @@
 package com.kodilla.testing.library;
 
+import java.util.List;
 import java.util.Objects;
 
 public class LibraryUser {
     String firstname;
     String lastname;
     String peselId;
+
     public LibraryUser(String firstname, String lastname, String peselId) {
         this.firstname = firstname;
         this.lastname = lastname;
@@ -43,14 +45,16 @@ public class LibraryUser {
 
         LibraryUser that = (LibraryUser) o;
 
-        return Objects.equals(firstname, that.firstname) &&
-                Objects.equals(lastname, that.lastname) &&
-                Objects.equals(peselId, that.peselId);
+        if (!Objects.equals(firstname, that.firstname)) return false;
+        if (!Objects.equals(lastname, that.lastname)) return false;
+        return Objects.equals(peselId, that.peselId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstname, lastname, peselId);
+        int result = firstname != null ? firstname.hashCode() : 0;
+        result = 31 * result + (lastname != null ? lastname.hashCode() : 0);
+        result = 31 * result + (peselId != null ? peselId.hashCode() : 0);
+        return result;
     }
 }
-

@@ -1,9 +1,12 @@
 package com.kodilla.testing.library;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.BDDMockito;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -66,8 +69,8 @@ class BookDirectoryTestSuite {
         List<Book> theListOfBooks40 = bookLibrary.listBooksWithCondition("FortyBooks");  // [13]
         // Then
 
-        //assertEquals(0, theListOfBooks0.size());                                         // [14]
-        //assertEquals(15, theListOfBooks15.size());                                       // [15]
+        assertEquals(0, theListOfBooks0.size());                                         // [14]
+        assertEquals(15, theListOfBooks15.size());                                       // [15]
         assertEquals(0, theListOfBooks40.size());                                        // [16]
     }
 
@@ -83,6 +86,33 @@ class BookDirectoryTestSuite {
         // Then
         assertEquals(0, theListOfBooks10.size());                                     // [5]
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());    // [6]
+    }
+    @Test
+    void testListBooksInHandsOf() {
+        // Given
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+
+        LibraryUser libraryUser1 = new LibraryUser("Rafał", "Nicki", "790106");
+
+        Book book1 = new Book("Book 1", "Author 1", 2020);
+        Book book2 = new Book("Book 2", "Author 2", 2021);
+        Book book3 = new Book("Book 3", "Author 3", 2022);
+        Book book4 = new Book("Book 4", "Author 4", 2023);
+        Book book5 = new Book("Book 5", "Author 5", 2024);
+
+        List<Book> resultListOfBorrowed = new ArrayList<>();
+        resultListOfBorrowed.add(book1);
+        resultListOfBorrowed.add(book2);
+        resultListOfBorrowed.add(book3);
+        resultListOfBorrowed.add(book4);
+        resultListOfBorrowed.add(book5);
+        // When
+        when(libraryDatabaseMock.listBooksInHandsOf(any())).thenReturn(resultListOfBorrowed);
+        List<Book> test = bookLibrary.listBooksInHandsOf(libraryUser1);
+        // Then
+        assertEquals(5, test.size());
+        assertEquals(5, resultListOfBorrowed.size());
+        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(libraryUser1);
     }
 
 
