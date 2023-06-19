@@ -1,4 +1,4 @@
-package com.kodilla.testing.forum;                             // [1]
+package com.kodilla.testing.forum.statistics;                             // [1]
 
 import java.util.ArrayList;                                    // [2]
 import java.util.LinkedList;                                   // [3]
@@ -17,6 +17,7 @@ public class ForumUser {                                       // [5]
         //real name of the user
         this.realName = realName;                                // [12]
     }                                                           // [13]
+
 
     public void addPost(String author, String postBody) {       // [14]
         ForumPost thePost = new ForumPost(postBody, author);

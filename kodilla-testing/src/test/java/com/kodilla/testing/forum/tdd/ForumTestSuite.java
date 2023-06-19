@@ -1,8 +1,8 @@
 package com.kodilla.testing.forum.tdd;
 
-import com.kodilla.testing.forum.ForumComment;
-import com.kodilla.testing.forum.ForumPost;
-import com.kodilla.testing.forum.ForumUser;
+import com.kodilla.testing.forum.statistics.ForumComment;
+import com.kodilla.testing.forum.statistics.ForumPost;
+import com.kodilla.testing.forum.statistics.ForumUser;
 import org.junit.jupiter.api.*;
 
 @DisplayName("TDD: Forum Test Suite ")

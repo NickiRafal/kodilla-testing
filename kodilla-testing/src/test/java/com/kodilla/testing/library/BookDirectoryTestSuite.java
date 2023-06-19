@@ -76,6 +76,7 @@ class BookDirectoryTestSuite {
         assertEquals(15, theListOfBooks15.size());                                       // [15]
         assertEquals(0, theListOfBooks40.size());                                        // [16]
     }
+
     @Test
     void testListBooksWithConditionFragmentShorterThan3() {                          // [1]
         // Given
