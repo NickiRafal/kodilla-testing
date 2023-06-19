@@ -113,6 +113,7 @@ class BookDirectoryTestSuite {
         assertEquals(5, test.size());
         assertEquals(5, resultListOfBorrowed.size());
         verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(libraryUser1);
+
     }
 
 
