@@ -17,6 +17,7 @@ import static org.mockito.Mockito.*;
 class BookDirectoryTestSuite {
     @Mock
     private LibraryDatabase libraryDatabaseMock;
+
     private List<Book> generateListOfNBooks(int booksQuantity) {
         List<Book> resultList = new ArrayList<>();
         for (int n = 1; n <= booksQuantity; n++) {
@@ -25,7 +26,9 @@ class BookDirectoryTestSuite {
         }
         return resultList;
     }
-    @Test                                                                               // [1]
+
+    @Test
+        // [1]
     void testListBooksWithConditionsReturnList() {                                      // [2]
 
         // Given
@@ -87,6 +90,7 @@ class BookDirectoryTestSuite {
         assertEquals(0, theListOfBooks10.size());                                     // [5]
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());    // [6]
     }
+
     @Test
     void testListBooksInHandsOf() {
         // Given
@@ -115,6 +119,5 @@ class BookDirectoryTestSuite {
         verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(libraryUser1);
 
     }
-
 
 }
