@@ -1,51 +1,61 @@
 package com.kodilla.testing.forum.statistics;
 
-;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Count {
-    Statistics statistics;
     private int userCount;
     private int postCount;
     private int commentCount;
     private double avgPostsPerUser;
     private double avgCommentsPerUser;
     private double avgCommentsPerPost;
-
-    public Count(Statistics statistics) {
+    Statistics statistics ;
+    public Count (Statistics statistics){
         this.statistics = statistics;
     }
+    public void calculateAdvStatistics(Statistics statistics) {
 
-    public List<ForumUser> calculateAdvStatisticsUser(Statistics statistics){
-        List<ForumUser> list = new ArrayList<>();
-        ForumUser forumUser = new ForumUser("Rafał","Nicki");
-        list.add(forumUser);
-        list=statistics.userNames();
-        return list;
+        userCount = statistics.userNames().size();
+        postCount = statistics.postsCount();
+        commentCount = statistics.commentsCount();
 
-    }
-    public int calculateAdvStatisticsPost(Statistics statistics){
-         List<ForumPost> postListw = new ArrayList<>();
-         ForumPost forumPost1 = new ForumPost("Tresc","Rafal");
-         ForumPost forumPost2 = new ForumPost("Tresc","Rafal");
-         postListw.add(forumPost1);
-         postListw.add(forumPost2);
+        if (userCount > 0) {
+            avgPostsPerUser = (double) postCount / userCount;
+            avgCommentsPerUser = (double) commentCount / userCount;
+        }
 
-        return statistics.postsCount();
-    }
-    public  int calculateAdvStatisticsComment(Statistics statistics){
-
-        ForumPost post1 = new ForumPost("Tresc","Rafał");
-        ForumComment forumComment1 = new ForumComment(post1,"test","Rafał" );
-        List<ForumComment> forumCommentList = new ArrayList<>();
-        forumCommentList.add(forumComment1);
-
-        return statistics.commentsCount();
+        if (postCount > 0) {
+            avgCommentsPerPost = (double) commentCount / postCount;
+        }
     }
 
+    public void showStatistics() {
+        System.out.println("User count: " + userCount);
+        System.out.println("Post count: " + postCount);
+        System.out.println("Comment count: " + commentCount);
+        System.out.println("Average posts per user: " + avgPostsPerUser);
+        System.out.println("Average comments per user: " + avgCommentsPerUser);
+        System.out.println("Average comments per post: " + avgCommentsPerPost);
+    }
+
+    public int getUserCount() {
+        return userCount;
+    }
+
+    public int getPostCount() {
+        return postCount;
+    }
+
+    public int getCommentCount() {
+        return commentCount;
+    }
+
+    public double getAvgPostsPerUser() {
+        return avgPostsPerUser;
+    }
+    public double getAvgCommentsPerUser() {
+        return avgCommentsPerUser;
+    }
+
+    public double getAvgCommentsPerPost() {
+        return avgCommentsPerPost;
+    }
 }
-
-
-

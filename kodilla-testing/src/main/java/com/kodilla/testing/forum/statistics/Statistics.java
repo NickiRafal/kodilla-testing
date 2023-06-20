@@ -5,4 +5,6 @@ public interface Statistics {
     List<ForumUser> userNames();
     int postsCount();
     int commentsCount();
+
+
 }
