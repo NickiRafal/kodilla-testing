@@ -4,13 +4,13 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class ForumUser {
-    private int idUser;
-    private String userName;
-    private char sex;
-    private LocalDate data;
-    private int post;
+    final private int idUser;
+    final private String userName;
+    final private char sex;
+    final private LocalDate data;
+    final private int post;
 
-    public ForumUser(int idUser, String userName, char sex, LocalDate data,int post) {
+    public ForumUser(int idUser, String userName, char sex, LocalDate data, int post) {
         this.idUser = idUser;
         this.userName = userName;
         this.sex = sex;
@@ -33,7 +33,8 @@ public class ForumUser {
     public LocalDate getData() {
         return data;
     }
-    public int getPost(){
+
+    public int getPost() {
         return post;
     }
 
