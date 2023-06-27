@@ -1,43 +1,21 @@
 package com.kodilla.stream;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.beautifier.PoemDecorator;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.reference.FunctionalCalculator;
 
 public class StreamMain {
     public static void main(String[] args) {
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
 
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
-        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
-        System.out.println("Calculating expressions with method references");
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
-        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
+        Forum forum = new Forum();
+        Map<Integer,ForumUser> resultMap = forum.getUserList().stream()
+                .filter(forumUser -> forumUser.getSex()=='M')
+                .filter(forumUser ->forumUser.getData().isBefore(LocalDate.now().minusYears(20)))
+                .filter(forumUser -> forumUser.getPost()>0)
+                .collect(Collectors.toMap(ForumUser::getIdUser,forumUser -> forumUser));
+        resultMap.entrySet().forEach(System.out::println);
 
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        String text1 = "Wyrażenie lambda a metody z argumentami";
-        String text2 = "Uproszczony zapis wyrażeń lambda";
-        String text3 = "Link do repozytorium wklej poniżej i wyślij do Mentora";
-
-        // Upiększacz dodający "ABC" na początku i na końcu tekstu
-        poemBeautifier.beautify(text1, text -> "ABC" + text + "ABC");
-
-        // Upiększacz zamieniający tekst na duże litery
-        poemBeautifier.beautify(text2 , text -> text.toUpperCase());
-
-        // Własny upiększacz - dodawanie +++ na początku i końcu tekstu
-        poemBeautifier.beautify(text3, text -> "+++"+ text+ "+++");
-
-        // Własny upiększacz - dodawanie ___ na początku i na końcu tekstu
-        poemBeautifier.beautify(text1, text -> "___" + text + "___");
-
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
     }
 }
