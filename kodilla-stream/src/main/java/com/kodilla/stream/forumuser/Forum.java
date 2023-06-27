@@ -25,8 +25,6 @@ public class Forum {
         return userList;
     }
 
-    public static int calculateAge(LocalDate birthDate, LocalDate currentDate) {
-        Period period = Period.between(birthDate, currentDate);
-        return period.getYears();
+
     }
-}
+
