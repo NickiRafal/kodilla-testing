@@ -4,17 +4,17 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 public class ForumUser {
-    final private int idUser;
-    final private String userName;
-    final private char sex;
-    final private LocalDate data;
-    final private int post;
+    private final int idUser;
+    private final String username;
+    private final char sex;
+    private final LocalDate dateOfBirth;
+    private final int post;
 
-    public ForumUser(int idUser, String userName, char sex, LocalDate data, int post) {
+    public ForumUser(int idUser, String username, char sex, LocalDate dateOfBirth, int post) {
         this.idUser = idUser;
-        this.userName = userName;
+        this.username = username;
         this.sex = sex;
-        this.data = data;
+        this.dateOfBirth = dateOfBirth;
         this.post = post;
     }
 
@@ -23,15 +23,15 @@ public class ForumUser {
     }
 
     public String getUserName() {
-        return userName;
+        return username;
     }
 
     public char getSex() {
         return sex;
     }
 
-    public LocalDate getData() {
-        return data;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
     }
 
     public int getPost() {
@@ -43,21 +43,21 @@ public class ForumUser {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ForumUser forumUser = (ForumUser) o;
-        return idUser == forumUser.idUser && sex == forumUser.sex && post == forumUser.post && Objects.equals(userName, forumUser.userName) && Objects.equals(data, forumUser.data);
+        return idUser == forumUser.idUser && sex == forumUser.sex && post == forumUser.post && Objects.equals(username, forumUser.username) && Objects.equals(dateOfBirth, forumUser.dateOfBirth);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idUser, userName, sex, data, post);
+        return Objects.hash(idUser, username, sex, dateOfBirth, post);
     }
 
     @Override
     public String toString() {
         return "ForumUser{" +
                 "idUser=" + idUser +
-                ", userName='" + userName + '\'' +
+                ", userName='" + username + '\'' +
                 ", sex=" + sex +
-                ", data=" + data +
+                ", data=" + dateOfBirth +
                 ", post=" + post +
                 '}';
     }
