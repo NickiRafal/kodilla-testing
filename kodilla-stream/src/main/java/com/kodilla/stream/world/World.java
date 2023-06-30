@@ -15,6 +15,13 @@ class World {
         continents.add(continent);
     }
 
+    @Override
+    public String toString() {
+        return "World{" +
+                "continents=" + continents +
+                '}';
+    }
+
     public BigDecimal getPeopleQuantity() {
         return continents.stream()
                 .flatMap(continent -> continent.getCountries().stream())

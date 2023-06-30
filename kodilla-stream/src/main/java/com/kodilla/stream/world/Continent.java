@@ -12,11 +12,20 @@ class Continent {
         this.countries = new ArrayList<>();
     }
 
+
     public void addCountry(Country country) {
         countries.add(country);
     }
 
     public List<Country> getCountries() {
         return countries;
+    }
+
+    @Override
+    public String toString() {
+        return "Continent{" +
+                "name='" + name + '\'' +
+                ", countries=" + countries +
+                '}';
     }
 }

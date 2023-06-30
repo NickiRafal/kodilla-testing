@@ -21,5 +21,6 @@ public class Main {
 
         BigDecimal totalPopulation = world.getPeopleQuantity();
         System.out.println("Total world population: " + totalPopulation);
+        System.out.println(world.toString());
     }
 }

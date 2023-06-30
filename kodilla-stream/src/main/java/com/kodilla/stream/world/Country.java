@@ -14,4 +14,12 @@ class Country {
     public BigDecimal getPeopleQuantity() {
         return peopleQuantity;
     }
+
+    @Override
+    public String toString() {
+        return "Country{" +
+                "name='" + name + '\'' +
+                ", peopleQuantity=" + peopleQuantity +
+                '}';
+    }
 }
