@@ -1,4 +1,4 @@
-package com.kodilla;
+package com.kodilla.rps;
 import java.util.Random;
 import java.util.Scanner;
 
