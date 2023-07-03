@@ -126,6 +126,7 @@ public class Game {
     private void handleEndOrNewGame(char choice) {
         if (choice == 'x') {
             System.out.println("Zakończono grę. Dziękujemy za udział!");
+            scanner.close();
         } else if (choice == 'n') {
             player.resetWins();
             computer.resetWins();
