@@ -8,9 +8,7 @@ public class Computer {
     private static Random random = new Random();
     private static Scanner scanner = new Scanner(System.in);
 
-   // public Computer() {
- //       wins = 0;
- //   }
+
 
     public int makeMove() {
 
