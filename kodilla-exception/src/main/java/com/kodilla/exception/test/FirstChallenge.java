@@ -6,25 +6,23 @@ public class FirstChallenge {
 
     public double divide(double a, double b) throws ArithmeticException {
         if (b == 0) {
-            try {
                 throw new ArithmeticException();
-            }catch (ArithmeticException e){
-                System.out.println("błąd arytmetyczny, dzielenie przez zero jest niedozwolone ");
-            }finally {
-                System.out.println("Dzielenie przez zero jest niedozwolone");
-            }
         }
+        System.out.println(a/b);
         return a / b;
     }
 
-    /**
-     * This main can throw an ArithmeticException!!!
-     * @param args
-     */
+
     public static void main(String[] args) {
         FirstChallenge firstChallenge = new FirstChallenge();
-        double result = firstChallenge.divide(3, 0);
-
-        System.out.println(result);
+        try {
+            firstChallenge.divide(10, 5);
+            firstChallenge.divide(20, 4);
+            firstChallenge.divide(3, 0);
+        }catch (ArithmeticException e) {
+            System.out.println("błąd arytmetyczny, dzielenie przez zero jest niedozwolone ");
+        }finally {
+            System.out.println("Dzielenie przez zero jest niedozwolone");
+        }
     }
 }
