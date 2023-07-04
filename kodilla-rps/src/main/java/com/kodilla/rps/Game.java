@@ -3,8 +3,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
-    private static Player player;
-    private static Computer computer;
+    private static Player player = new Player();
+    private static Computer computer = new Computer();
     private int numberOfRounds;
 
     private static final int ROCK = 1;
@@ -14,10 +14,7 @@ public class Game {
     private static Random random = new Random();
     private static Scanner scanner = new Scanner(System.in);
 
-    public Game() {
-        player = new Player();
-        computer = new Computer();
-    }
+
 
     public void play() {
         System.out.println("Witaj w grze Kamień, Papier, Nożyce!");

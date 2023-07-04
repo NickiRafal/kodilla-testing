@@ -4,14 +4,11 @@ import java.util.Scanner;
 
 public class Player {
     private String name;
-    private int wins;
+    private int wins =0;
 
     private static Scanner scanner = new Scanner(System.in);
 
-    public Player() {
-       // name = null;
-        wins = 0;
-    }
+
 
     public void askForName() {
         System.out.print("Podaj swoje imię: ");

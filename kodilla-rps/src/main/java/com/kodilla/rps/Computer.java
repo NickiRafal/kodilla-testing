@@ -4,13 +4,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Computer {
-    private int wins;
+    private int wins = 0;
     private static Random random = new Random();
     private static Scanner scanner = new Scanner(System.in);
 
-    public Computer() {
-        wins = 0;
-    }
+   // public Computer() {
+ //       wins = 0;
+ //   }
 
     public int makeMove() {
 
