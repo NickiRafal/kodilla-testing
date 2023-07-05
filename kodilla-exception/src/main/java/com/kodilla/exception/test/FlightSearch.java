@@ -15,7 +15,7 @@ public class FlightSearch {
         airportMap.put("Rzym", false);
     }
 
-    public void findFlight(Flight flight) throws RouteNotFoundException {
+    public Flight findFlight(Flight flight) throws RouteNotFoundException {
         String departureAirport = flight.getDepartureAirport();
         String arrivalAirport = flight.getArrivalAirport();
 
@@ -30,5 +30,6 @@ public class FlightSearch {
         }
 
         System.out.println("Lot znaleziony z " + departureAirport + " do " + arrivalAirport);
+        return flight;
     }
 }
