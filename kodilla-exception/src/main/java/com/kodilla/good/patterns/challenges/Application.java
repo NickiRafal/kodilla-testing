@@ -11,11 +11,11 @@ public class Application {
         System.out.println(productInfo);
 
         List<Product> baskets = productOrderService.getBasket().addToBasket(productList.productList());
-        String basketInfo = productOrderService.getBasket().schowBasket(baskets);
+        String basketInfo = productOrderService.getBasket().schowListProducts(baskets);
         System.out.println(basketInfo);
 
         List<Product> saveRepo = productOrderService.getOrdersRepository().saveOrder(baskets);
-        String saveRepoInfo = productOrderService.getOrdersRepository().schowRepo(saveRepo);
+        String saveRepoInfo = productOrderService.getOrdersRepository().schowListProducts(saveRepo);
         System.out.println(saveRepoInfo);
     }
 }

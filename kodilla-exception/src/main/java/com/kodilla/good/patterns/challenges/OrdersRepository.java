@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrdersRepository implements SchowRepository{
+public class OrdersRepository implements SchowList{
     public List <Product>saveOrder(List <Product> products) {
         List<Product> shoppingList = new ArrayList<>();
         for (Product product : products) {
@@ -31,5 +31,14 @@ public class OrdersRepository implements SchowRepository{
             System.out.println("Produkty które zamówiłeś to  ");
         }
         return shoppingList;
+    }
+    @Override
+    public String schowListProducts(List<Product> list) {
+        for (Product saveRepo:list) {
+
+            System.out.println(saveRepo.getProduct() + "  " + saveRepo.getDescription());
+
+        }
+        return "";
     }
 }

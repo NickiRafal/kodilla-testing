@@ -14,4 +14,18 @@ public class ProductList implements SchowList {
         list.add(product4);
         return list;
     }
+
+    @Override
+    public String schowListProducts(List<Product> list) {
+        System.out.println("W naszym sklepie posiadamy " + list.size() + " pozycje ");
+        System.out.println();
+        int counter = 0;
+        for (Product product : list) {
+            counter++;
+            System.out.println(counter + "  Nazwa:  " + product.getProduct() + product.getIdProduct() + "  Cena:  "
+                    + product.getPrice() + " zł   Opis:  " + product.getDescription() + "  Dostępność:  " + product.getQuantity());
+            System.out.println("---------------------------");
+        }
+        return "";
+    }
 }

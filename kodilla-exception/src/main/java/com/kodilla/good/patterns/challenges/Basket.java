@@ -2,7 +2,7 @@ package com.kodilla.good.patterns.challenges;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-public class Basket implements SchowBasket {
+public class Basket implements SchowList {
     public List<Product> addToBasket(List<Product> products) {
         Scanner scanner = new Scanner(System.in);
         List<Product> cart = new ArrayList<>();
@@ -33,5 +33,13 @@ public class Basket implements SchowBasket {
         System.out.println("Zakończyłeś dodawanie do koszyka");
 
         return cart;
+    }
+
+    @Override
+    public String schowListProducts(List<Product> list) {
+        for (Product basketList : list) {
+            System.out.println("Dodałeś do koszyka " + basketList.getProduct() + "  " + basketList.getDescription());
+        }
+        return "";
     }
 }
