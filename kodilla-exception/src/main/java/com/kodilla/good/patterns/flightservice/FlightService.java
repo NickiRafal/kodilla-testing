@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FlightServis {
+public class FlightService {
    private List<Flight>flights;
 
-    public FlightServis() {
+    public FlightService() {
         flights = new ArrayList<>();
     }
     public void addFlight(String from, String via, String to){
