@@ -18,6 +18,7 @@ public class TaskListDaoTestSuite {
     public void testFindByListName(){
         //Given
         TaskList taskList = new TaskList("ToDo list","ToDo task");
+        taskListDao.save(taskList);
         //When
         List <TaskList> taskLists = taskListDao.findByListName("ToDo list");
         //Then
