@@ -1,11 +1,12 @@
 package com.kodilla.patterns.singleton;
 
 import org.junit.jupiter.api.Test;
+
 import static org.testng.AssertJUnit.assertEquals;
 
 public class LoggerTestSuite {
     @Test
-    void testLastLog(){
+    void testLogAndLastLog(){
         //Given
         Logger logger = Logger.INSTANCE;
         //When

@@ -15,6 +15,9 @@ build/
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+Triangle.java
+.idea/
+
 
 ### Eclipse ###
 .apt_generated

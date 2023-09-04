@@ -1,0 +1,1 @@
+[Product{idProduct=1, product='Szczoteczka do zębów', price=4.5, description='Szczoteczka elektryczna', quantity=10}, Product{idProduct=2, product='Nóż kuchenny', price=10.2, description='Nóż ze stali nierdzewnej', quantity=10}]
