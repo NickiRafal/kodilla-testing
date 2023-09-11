@@ -2,21 +2,17 @@ package com.kodilla.hibernate.task.dao;
 
 import com.kodilla.hibernate.task.TaskFinancialDetails;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.math.BigDecimal;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@ExtendWith(SpringExtension.class)
-@SpringBootTest
+//@ExtendWith(SpringExtension.class)
+//@SpringBootTest
 class TaskFinancialDetailsDaoTestSuite {
 
-    @Autowired
+   // @Autowired
     private TaskFinancialDetailsDao taskFinancialDetailsDao;
 
     @Test
@@ -36,6 +32,4 @@ class TaskFinancialDetailsDaoTestSuite {
         //CleanUp
         taskFinancialDetailsDao.deleteById(id);
     }
-
-
 }

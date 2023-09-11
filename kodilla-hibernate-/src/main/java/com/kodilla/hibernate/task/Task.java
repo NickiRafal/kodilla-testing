@@ -2,10 +2,11 @@ package com.kodilla.hibernate.task;
 
 import com.kodilla.hibernate.tasklist.TaskList;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import java.util.Date;
 
-//@Entity
+@Entity
 @Table(name = "TASKS")
 public final class Task {
 
@@ -36,7 +37,7 @@ public final class Task {
     public String getDescription() {
         return description;
     }
-
+    @NotNull
     @Column(name="CREATED")
     public Date getCreated() {
         return created;
@@ -71,8 +72,8 @@ public final class Task {
     public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
         this.taskFinancialDetails = taskFinancialDetails;
     }
-@ManyToOne(fetch = FetchType.LAZY)
-@JoinColumn(name = "TASKLIST_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TASKLIST_ID")
     public TaskList getTaskList() {
         return taskList;
     }
