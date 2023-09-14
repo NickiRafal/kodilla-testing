@@ -5,22 +5,25 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
-
+@NamedQuery(
+        name = "Employee.findByLastNameQuery",
+        query = "FROM Employee WHERE lastName = :lastName"
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
 
     private int id;
     private String firstname;
-    private String lastname;
+    private String lastName;
     private List <Company> companies = new ArrayList<>();
 
     public Employee() {
     }
 
-    public Employee(String firstname, String lastname) {
+    public Employee(String firstname, String lastName) {
         this.firstname = firstname;
-        this.lastname = lastname;
+        this.lastName = lastName;
     }
 
     @Id
@@ -38,9 +41,9 @@ public class Employee {
     }
 
     @NotNull
-    @Column(name = "LASTNAME")
-    public String getLastname() {
-        return lastname;
+    @Column(name = "lastName")
+    public String getLastName() {
+        return lastName;
     }
 
     private void setId(int id) {
@@ -51,8 +54,8 @@ public class Employee {
         this.firstname = firstname;
     }
 
-    private void setLastname(String lastname) {
-        this.lastname = lastname;
+    private void setLastName(String lastName) {
+        this.lastName = lastName;
     }
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -66,5 +69,6 @@ public class Employee {
     private void setCompanies(List<Company> companies) {
         this.companies = companies;
     }
+
 
 }

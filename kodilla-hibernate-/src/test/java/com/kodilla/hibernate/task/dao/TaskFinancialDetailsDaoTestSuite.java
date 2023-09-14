@@ -2,6 +2,8 @@ package com.kodilla.hibernate.task.dao;
 
 import com.kodilla.hibernate.task.TaskFinancialDetails;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.util.List;
@@ -9,10 +11,10 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //@ExtendWith(SpringExtension.class)
-//@SpringBootTest
+@SpringBootTest
 class TaskFinancialDetailsDaoTestSuite {
 
-   // @Autowired
+   @Autowired
     private TaskFinancialDetailsDao taskFinancialDetailsDao;
 
     @Test

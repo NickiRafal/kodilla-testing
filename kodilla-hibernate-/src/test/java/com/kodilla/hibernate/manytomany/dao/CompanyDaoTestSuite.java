@@ -2,22 +2,32 @@ package com.kodilla.hibernate.manytomany.dao;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.Employee;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 class CompanyDaoTestSuite {
+
     @Autowired
-  private CompanyDao companyDao;
+    private CompanyDao companyDao;
+    @Autowired
+    private EmployeDao employeeDao;
 
+    private int softwareMachineId;
+    private int dataMaestersId;
+    private int greyMatterId;
 
-    @Test
-    void testSaveManyToMany() {
+    @BeforeEach
+    void setup() {
 
-//        //Given
         Employee johnSmith = new Employee("John", "Smith");
         Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
         Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
@@ -38,26 +48,53 @@ class CompanyDaoTestSuite {
         lindaKovalsky.getCompanies().add(dataMaesters);
         lindaKovalsky.getCompanies().add(greyMatter);
 
-        //When
         companyDao.save(softwareMachine);
-        int softwareMachineId = softwareMachine.getId();
         companyDao.save(dataMaesters);
-        int dataMaestersId = dataMaesters.getId();
         companyDao.save(greyMatter);
-        int greyMatterId = greyMatter.getId();
+
+        softwareMachineId = softwareMachine.getId();
+        dataMaestersId = dataMaesters.getId();
+        greyMatterId = greyMatter.getId();
+    }
+
+    @AfterEach
+    void cleanup() {
+        companyDao.deleteAll();
+        System.out.println("Dane zostały usunięte prawidłowo");
+    }
+
+    @Test
+    @Transactional
+    void testFindCompaniesByNameFragment() {
+        //When
+        List<Company> companyList1 = companyDao.findUsingNamedNativeQuery("Sof");
+        List<Company> companyList2 = companyDao.findUsingNamedNativeQuery("Dat");
+        List<Company> companyList3 = companyDao.findUsingNamedNativeQuery("Gre");
 
         //Then
-        assertNotEquals(0, softwareMachineId);
-        assertNotEquals(0, dataMaestersId);
-        assertNotEquals(0, greyMatterId);
+        assertEquals(1, companyList1.size());
+        assertEquals(1, companyList2.size());
+        assertEquals(1, companyList3.size());
+        assertEquals("Software Machine", companyList1.get(0).getName());
+        assertEquals("Data Maesters", companyList2.get(0).getName());
+        assertEquals("Grey Matter", companyList3.get(0).getName());
+    }
 
-        //CleanUp
-        try {
-            companyDao.deleteById(softwareMachineId);
-            companyDao.deleteById(dataMaestersId);
-            companyDao.deleteById(greyMatterId);
-        } catch (Exception e) {
-            //do nothing
-        }
+    @Test
+    @Transactional
+    void testFindEmployeesByLastName() {
+        //When
+        List<Employee> employeeList1 = employeeDao.findByLastNameQuery("Clarckson");
+        List<Employee> employeeList2 = employeeDao.findByLastNameQuery("Kovalsky");
+        List<Employee> employeeList3 = employeeDao.findByLastNameQuery("Smith");
+
+
+        //Then
+        assertEquals(1, employeeList1.size());
+        assertEquals(1, employeeList2.size());
+        assertEquals(1, employeeList3.size());
+        assertEquals("Clarckson", employeeList1.get(0).getLastName());
+        assertEquals("Kovalsky",employeeList2.get(0).getLastName());
+        assertEquals("Smith",employeeList3.get(0).getLastName());
     }
 }

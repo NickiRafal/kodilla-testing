@@ -5,6 +5,11 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+@NamedNativeQuery(
+        name = "Company.findByFirstThreeCharacters",
+        query = "SELECT * FROM Company WHERE LEFT(name, 3) = :startsWith",
+        resultClass = Company.class
+)
 @Entity
 @Table(name = "COMPANY")
 public class Company {
@@ -17,6 +22,14 @@ public class Company {
     public Company(String name){
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
     @Id
     @GeneratedValue
     @org.jetbrains.annotations.NotNull
