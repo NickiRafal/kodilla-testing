@@ -5,15 +5,17 @@ import com.kodilla.hibernate.task.TaskFinancialDetails;
 import com.kodilla.hibernate.tasklist.TaskList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-//@SpringBootTest
+@SpringBootTest
 public class TaskListDaoTestSuite {
-   // @Autowired
+    @Autowired
     private TaskListDao taskListDao;
 
     @Test
@@ -51,7 +53,7 @@ public class TaskListDaoTestSuite {
         assertNotEquals(0, id);
 
         //CleanUp
-        //taskListDao.deleteById(id);
+        taskListDao.deleteById(id);
 
     }
 
