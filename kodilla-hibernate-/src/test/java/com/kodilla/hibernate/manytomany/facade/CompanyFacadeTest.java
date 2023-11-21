@@ -27,12 +27,6 @@ class CompanyFacadeTest {
     @Autowired
     private CompanyDao companyDao;
 
-    @Autowired
-    private EmployeDao employeeDao;
-    private int softwareMachineId;
-    private int dataMaestersId;
-    private int greyMatterId;
-
     @BeforeEach
     void setup() {
 
@@ -60,9 +54,7 @@ class CompanyFacadeTest {
         companyDao.save(dataMaesters);
         companyDao.save(greyMatter);
 
-        softwareMachineId = softwareMachine.getId();
-        dataMaestersId = dataMaesters.getId();
-        greyMatterId = greyMatter.getId();
+
     }
 
     @AfterEach
